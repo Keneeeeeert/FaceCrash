@@ -4,6 +4,9 @@ collector/target/
 # Large ML model files
 *.onnx
 
+# User images (replace with your own photos)
+extension/images/*.png
+
 # OS files
 .DS_Store
 Thumbs.db
