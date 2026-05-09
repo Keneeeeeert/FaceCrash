@@ -1,0 +1,9 @@
+[package]
+name = "png-collector"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eframe = "0.30"
+nokhwa = { version = "0.10.10", features = ["input-native"] }
+image = "0.25"

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-size: 14px;
+            font-family: Arial, "Microsoft YaHei", sans-serif;
+            width: 300px;
+            background-color: #FB7299;
+            color: #fff;
+            margin: 0;
+            padding: 16px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin: 0 0 16px 0;
+            text-align: center;
+        }
+
+        .fancy-checkbox {
+            position: relative;
+            padding-left: 28px;
+            cursor: pointer;
+            display: inline-block;
+            line-height: 20px;
+        }
+
+        .hidden-checkbox {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+
+        .hidden-checkbox:checked+.checkmark::after {
+            content: "";
+            position: absolute;
+            display: block;
+            left: 5px;
+            top: 1px;
+            width: 6px;
+            height: 11px;
+            border: solid #FB7299;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .section {
+            margin-bottom: 14px;
+        }
+
+        .section label {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 6px 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        select {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="extension-title">FaceCrash</h1>
+
+    <div class="section">
+        <label class="fancy-checkbox" for="disableExtension">
+            <input type="checkbox" id="disableExtension" class="hidden-checkbox" role="checkbox">
+            <span class="checkmark"></span>
+            <span class="checkbox-text">启用扩展</span>
+        </label>
+    </div>
+
+    <div class="section">
+        <label for="personSelect">人物选择:</label>
+        <select id="personSelect">
+            <option value="0">随机</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <label for="appearChance">出现概率 (%):</label>
+        <input type="number" id="appearChance" min="0" max="100" step="5" />
+    </div>
+
+    <div class="section">
+        <label for="flipChance">翻转概率 (%):</label>
+        <input type="number" id="flipChance" min="0" max="100" step="5" />
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>

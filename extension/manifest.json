@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "FaceCrash",
+    "version": "1.0.0",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "96": "icon.png",
+        "128": "icon.png"
+    },
+    "description": "让你喜欢的角色闯入B站每一个视频封面",
+    "action": {
+        "default_title": "FaceCrash",
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        }
+    },
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "*://*.bilibili.com/*"
+    ],
+    "content_scripts": [{
+        "matches": ["*://*.bilibili.com/*"],
+        "js": ["utils.js", "content.js"],
+        "run_at": "document_idle"
+    }],
+    "web_accessible_resources": [{
+        "resources": ["images/*.png", "images/**/*.png", "images/*.json"],
+        "matches": ["*://*.bilibili.com/*"]
+    }]
+}
